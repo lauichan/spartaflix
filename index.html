@@ -103,9 +103,9 @@
             $('#postingbox').toggle();
         });
 
-        let url = "http://spartacodingclub.shop/sparta_api/weather/seoul"
+        let url = "https://api.open-meteo.com/v1/forecast?latitude=37.55&longitude=127&current_weather=true&timezone=auto"
         fetch(url).then(res => res.json()).then(data => {
-            let temp = (data['temp'] > 20) ? "더워요" : "추워요";
+            let temp = (data['current_weather']['temperature'] > 20) ? "더워요" : "추워요";
             $('#temp').text(temp);
         })
 
